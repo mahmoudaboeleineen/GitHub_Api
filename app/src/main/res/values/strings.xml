@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GitHub_Api</string>
+    <string name="internet">No Internet Coniction!</string>
+</resources>
