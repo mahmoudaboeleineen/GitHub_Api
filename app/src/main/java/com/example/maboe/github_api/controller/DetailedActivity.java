@@ -1,18 +1,13 @@
 package com.example.maboe.github_api.controller;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.FileObserver;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +16,6 @@ import com.squareup.picasso.Picasso;
 
 public class DetailedActivity extends AppCompatActivity {
     TextView Link, Username;
-    Toolbar mActionBarToolbar;
     ImageView imageView;
 
     @Override
@@ -30,9 +24,9 @@ public class DetailedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        imageView = (ImageView) findViewById(R.id.user_image_header);
-        Link = (TextView) findViewById(R.id.github_link);
-        Username = (TextView) findViewById(R.id.user_name);
+        imageView = findViewById(R.id.user_image_header);
+        Link = findViewById(R.id.github_link);
+        Username = findViewById(R.id.user_name);
 
         String userName = getIntent().getExtras().getString("login");
         String avatarUrl = getIntent().getExtras().getString("avatar_url");
@@ -59,7 +53,6 @@ public class DetailedActivity extends AppCompatActivity {
                 .getIntent();
         return shareIntent;
     }
-
 
 
     @Override

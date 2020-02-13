@@ -1,4 +1,4 @@
-package com.example.maboe.github_api;
+package com.example.maboe.github_api.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.maboe.github_api.R;
 import com.example.maboe.github_api.controller.DetailedActivity;
 import com.example.maboe.github_api.model.Item;
 import com.squareup.picasso.Picasso;
@@ -54,11 +55,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
         public ViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.header);
-            githublink1 = (TextView) view.findViewById(R.id.github_link);
-            myImageView = (ImageView) view.findViewById(R.id.user_avatar);
+            title = view.findViewById(R.id.header);
+            githublink1 = view.findViewById(R.id.github_link);
+            myImageView = view.findViewById(R.id.user_avatar);
 
-            //on item click
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

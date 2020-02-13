@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.maboe.github_api.ItemAdapter;
+import com.example.maboe.github_api.Adapter.ItemAdapter;
 import com.example.maboe.github_api.R;
 import com.example.maboe.github_api.api.ApiService;
 import com.example.maboe.github_api.api.Client;
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     TextView Disconnected;
-    private Item item;
     ProgressDialog pd;
     private SwipeRefreshLayout swipeContainer;
 
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
 
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        swipeContainer = findViewById(R.id.swipe_container);
 
         swipeContainer.setColorSchemeResources(android.R.color.holo_orange_dark);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
@@ -55,14 +54,14 @@ public class MainActivity extends AppCompatActivity {
         pd.setMessage("Fetching Github Users...");
         pd.setCancelable(false);
         pd.show();
-        recyclerView=(RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView= findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.smoothScrollToPosition(0);
         loadJSON();
     }
 
     private void loadJSON(){
-        Disconnected = (TextView) findViewById(R.id.disconnect);
+        Disconnected = findViewById(R.id.disconnect);
         try{
             Client Client = new Client();
             ApiService apiService =
