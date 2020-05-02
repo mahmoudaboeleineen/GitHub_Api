@@ -1,7 +1,6 @@
 package com.example.maboe.github_api.controller;
 
 import android.app.ProgressDialog;
-//import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
