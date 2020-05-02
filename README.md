@@ -9,3 +9,16 @@ this Project consume GitHub Api, display all users acording to the location in t
    - you can sahre the user link.<br/>
 
 
+## Features and Libraries:
+
+   - AndroidX .<br/>
+   - Retrofit2 .<br/>
+   - Gson .<br/>
+   - picasso .<br/>
+   - Constraintlayout .<br/>
+   - Json .<br/>
+   - GitHub API.<br/>
+   - Handle network status and network failures.<br/>
+   - Material design.<br/>
+   - Swiperefreshlayout.<br/>
+
