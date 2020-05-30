@@ -2,7 +2,10 @@ package com.example.maboe.github_api.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,17 +20,19 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private List<Item> items;
     private Context context;
 
-    public ItemAdapter(Context applicationContext, List<Item> itemArrayList) {
+
+    public UserAdapter(Context applicationContext, List<Item> itemArrayList) {
         this.context = applicationContext;
         this.items = itemArrayList;
     }
 
+    @NonNull
     @Override
-    public ItemAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_users, viewGroup, false);
         return new ViewHolder(view);
     }
@@ -35,7 +40,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         viewHolder.title.setText(items.get(i).getLogin());
-        viewHolder.githublink1.setText(items.get(i).getHtmlUrl());
 
         Picasso.with(context)
                 .load(items.get(i).getAvatarUrl())
@@ -49,15 +53,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView title, githublink1;
+        private TextView title;
         private ImageView myImageView;
 
 
         public ViewHolder(View view) {
             super(view);
-            title = view.findViewById(R.id.header);
-            githublink1 = view.findViewById(R.id.github_link);
+            title = view.findViewById(R.id.user_name);
             myImageView = view.findViewById(R.id.user_avatar);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,13 +73,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         intent.putExtra("login", items.get(pos).getLogin());
                         intent.putExtra("html_url", items.get(pos).getHtmlUrl());
                         intent.putExtra("avatar_url", items.get(pos).getAvatarUrl());
-                        //intent.putExtra("profile_url",items.get(pos).getHtmlUrl());
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
-                        Toast.makeText(v.getContext(), "You clicked " + clickedDataItem.getLogin(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(), clickedDataItem.getLogin(), Toast.LENGTH_SHORT).show();
                     }
                 }
-
             });
         }
     }

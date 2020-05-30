@@ -1,4 +1,30 @@
 <resources>
-    <string name="app_name">GitHub_Api</string>
+    <string name="app_name">GitHub Users</string>
     <string name="internet">No Internet Coniction!</string>
+    <string name="user_name">User Name</string>
+    <string name="user_location">User Location</string>
+    <string name="bio">Bio</string>
+    <string name="blog">Blog</string>
+    <string name="gists">Gists</string>
+    <string name="following">following</string>
+    <string name="settings">Settings</string>
+    <string name="_000">000</string>
+    <string name="followers">followers</string>
+    <string name="blog_blog_com">blog@blog.com</string>
+    <string name="repositories">Repositories</string>
+    <string name="prfile_image">prfile image</string>
+    <string name="github_com_user">GitHub.com/User</string>
+    <string name="github_account_link">GitHub Account Link</string>
+    <string name="user_repositories">User Repositories</string>
+    <string name="share">Share</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="_20_02_2020">20/02/2020</string>
+    <string name="java">Java</string>
+    <string name="fork">fork :</string>
+    <string name="repo_created_date">Repo Created Date :</string>
+    <string name="repo_description">Repo Description :</string>
+    <string name="repo_name">Repo Name :</string>
+    <string name="_0">0</string>
+
 </resources>

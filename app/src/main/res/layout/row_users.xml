@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
     android:layout_marginLeft="5dp"
     android:layout_marginTop="5dp"
     android:layout_marginRight="5dp"
     android:clickable="true"
-    android:focusable="true"
     android:elevation="60dp"
+    android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground">
 
     <RelativeLayout
@@ -16,34 +17,22 @@
 
         <ImageView
             android:id="@+id/user_avatar"
-            android:layout_width="105dp"
+            android:layout_width="150dp"
             android:layout_height="125dp"
-            android:layout_marginLeft="5dp"
-            android:scaleType="fitXY" />
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/prfile_image" />
 
         <TextView
-            android:id="@+id/header"
-            android:layout_width="wrap_content"
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/user_avatar"
-            android:text="User Name"
-            android:textSize="15sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/user_avatar"
+            android:lines="1"
+            android:text="@string/user_name"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-        <TextView
-            android:id="@+id/github_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/user_avatar"
-            android:layout_below="@id/header"
-            android:text="GitHub Link"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:textStyle="bold"
-            android:visibility="invisible"/>
-
 
     </RelativeLayout>
 

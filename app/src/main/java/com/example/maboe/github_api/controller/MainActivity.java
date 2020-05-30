@@ -1,8 +1,11 @@
 package com.example.maboe.github_api.controller;
 
 import android.app.ProgressDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -12,7 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.maboe.github_api.Adapter.ItemAdapter;
+import com.example.maboe.github_api.Adapter.UserAdapter;
 import com.example.maboe.github_api.R;
 import com.example.maboe.github_api.api.ApiService;
 import com.example.maboe.github_api.api.Client;
@@ -24,6 +27,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -41,29 +45,29 @@ public class MainActivity extends AppCompatActivity {
         swipeContainer = findViewById(R.id.swipe_container);
 
         swipeContainer.setColorSchemeResources(android.R.color.holo_orange_dark);
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh(){
+            public void onRefresh() {
                 loadJSON();
                 Toast.makeText(MainActivity.this, "Github Users Refreshed", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void initViews(){
+    private void initViews() {
         pd = new ProgressDialog(this);
         pd.setMessage("Fetching Github Users...");
         pd.setCancelable(false);
         pd.show();
-        recyclerView= findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.smoothScrollToPosition(0);
         loadJSON();
     }
 
-    private void loadJSON(){
+    private void loadJSON() {
         Disconnected = findViewById(R.id.disconnect);
-        try{
+        try {
             Client Client = new Client();
             ApiService apiService =
                     Client.getClient().create(ApiService.class);
@@ -72,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<ItemResponse> call, Response<ItemResponse> response) {
                     List<Item> items = response.body().getItems();
-                    recyclerView.setAdapter(new ItemAdapter(getApplicationContext(), items));
+                    recyclerView.setAdapter(new UserAdapter(getApplicationContext(), items));
                     recyclerView.smoothScrollToPosition(0);
                     swipeContainer.setRefreshing(false);
                     pd.hide();
@@ -88,9 +92,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.d("Error", e.getMessage());
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
+
     }
 }
